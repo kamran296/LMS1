@@ -28,8 +28,8 @@ mongoose
     console.log(err, " error connecting database");
   });
 
-// Initializing Admin
-login.initializeAdmin();
+// // Initializing Admin
+// login.initializeAdmin();
 
 // middleware
 
