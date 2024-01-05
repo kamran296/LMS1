@@ -27,7 +27,7 @@ const BatchList = () => {
           navigate("/");
         }
         const response = await fetch(
-          "http://localhost:8000/api/v1/batch/getallbatches"
+          "https://lms1-mg40.onrender.com/api/v1/batch/getallbatches"
         );
         const data = await response.json();
 
@@ -35,7 +35,7 @@ const BatchList = () => {
         const batchesWithTeacherDetails = await Promise.all(
           data.map(async (batch) => {
             const teacherResponse = await fetch(
-              `http://localhost:8000/api/v1/teacher/getteacher/${batch.teacher}`
+              `https://lms1-mg40.onrender.com/api/v1/teacher/getteacher/${batch.teacher}`
             );
             const teacherData = await teacherResponse.json();
             return {

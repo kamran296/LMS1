@@ -8,12 +8,12 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 const CreateCourse = () => {
-   const { pathname } = useLocation();
+  const { pathname } = useLocation();
 
-   // Automatically scrolls to top whenever pathname changes
-   useEffect(() => {
-     window.scrollTo(0, 0);
-   }, [pathname]);
+  // Automatically scrolls to top whenever pathname changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   const [coursename, setCoursename] = useState("");
   const [description, setDescription] = useState("");
   const [duration, setDuration] = useState("");
@@ -34,7 +34,7 @@ const CreateCourse = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/v1/course/create-course",
+        "https://lms1-mg40.onrender.com/api/v1/course/create-course",
         {
           coursename: coursename,
           desc: description,

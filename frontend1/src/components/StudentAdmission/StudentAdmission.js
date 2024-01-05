@@ -8,12 +8,12 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 const StudentAdmission = () => {
-   const { pathname } = useLocation();
+  const { pathname } = useLocation();
 
-   // Automatically scrolls to top whenever pathname changes
-   useEffect(() => {
-     window.scrollTo(0, 0);
-   }, [pathname]);
+  // Automatically scrolls to top whenever pathname changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   const navigate = useNavigate();
   const [courseInterested, setcourseInterested] = useState("");
   const [formData, setFormData] = useState({
@@ -40,7 +40,7 @@ const StudentAdmission = () => {
   const fetchCourseId = async (courseName) => {
     try {
       const response = await fetch(
-        `http://localhost:8000/api/v1/course/${courseName}`,
+        `https://lms1-mg40.onrender.com/api/v1/course/${courseName}`,
         {
           method: "GET",
         }
@@ -103,7 +103,7 @@ const StudentAdmission = () => {
     const fetchCourses = async () => {
       try {
         const response = await fetch(
-          "http://localhost:8000/api/v1/course/getallcourse",
+          "https://lms1-mg40.onrender.com/api/v1/course/getallcourse",
           {
             method: "GET",
           }
@@ -129,7 +129,7 @@ const StudentAdmission = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/v1/admissions/create-admission",
+        "https://lms1-mg40.onrender.com/api/v1/admissions/create-admission",
         formData, // Pass form data directly, axios will handle JSON.stringify
         {
           headers: {

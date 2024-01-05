@@ -1,49 +1,3 @@
-// // StudentAdmitModal.js
-// import React, { useState } from "react";
-// import Modal from "react-bootstrap/Modal";
-// import Button from "react-bootstrap/Button";
-// import Form from "react-bootstrap/Form";
-
-// const StudentAdmitModal = ({ show, handleClose, handleAdmit }) => {
-//   const [fees, setFees] = useState("");
-
-//   const handleSubmit = () => {
-//     // Additional validation if needed
-//     handleAdmit({ fees });
-//   };
-
-//   return (
-//     <Modal show={show} onHide={handleClose}>
-//       <Modal.Header closeButton>
-//         <Modal.Title>Admit Student</Modal.Title>
-//       </Modal.Header>
-//       <Modal.Body>
-//         <Form>
-//           <Form.Group controlId="fees">
-//             <Form.Label>Enter Fees</Form.Label>
-//             <Form.Control
-//               type="text"
-//               placeholder="Enter fees"
-//               value={fees}
-//               onChange={(e) => setFees(e.target.value)}
-//             />
-//           </Form.Group>
-//         </Form>
-//       </Modal.Body>
-// <Modal.Footer>
-//   <Button variant="secondary" onClick={handleClose}>
-//     Close
-//   </Button>
-//   <Button variant="primary" onClick={handleSubmit}>
-//     Admit Student
-//   </Button>
-// </Modal.Footer>
-//     </Modal>
-//   );
-// };
-
-// export default StudentAdmitModal;
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import firebase from "firebase/compat/app";
@@ -67,7 +21,7 @@ const StudentAdmitModal = ({
     const ApplicationData = async (req, res) => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/api/v1/admissions/${applicationId}`
+          `https://lms1-mg40.onrender.com/api/v1/admissions/${applicationId}`
         );
         const data = await response.data;
         // setApplicationData(data);
@@ -86,7 +40,7 @@ const StudentAdmitModal = ({
   const batchOptions = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8000/api/v1/batch/getAllBatches"
+        "https://lms1-mg40.onrender.com/api/v1/batch/getAllBatches"
       );
       const data = await response.data;
       console.log(data);
@@ -114,7 +68,7 @@ const StudentAdmitModal = ({
   // function for saving batch data in the student
   const BatchData = async (selectedBatchId) => {
     const response = await axios.get(
-      `http://localhost:8000/api/v1/batch/${selectedBatchId}`
+      `https://lms1-mg40.onrender.com/api/v1/batch/${selectedBatchId}`
     );
     const data = await response.data;
     setBatchData(data);
@@ -193,7 +147,7 @@ const StudentAdmitModal = ({
       // Send form data to the API endpoint
 
       const response = await axios.post(
-        "http://localhost:8000/api/v1/student/create-student",
+        "https://lms1-mg40.onrender.com/api/v1/student/create-student",
         formData
       );
       const status = "Admitted";
@@ -202,7 +156,7 @@ const StudentAdmitModal = ({
 
       if (status === "Admitted") {
         const response = await axios.put(
-          `http://localhost:8000/api/v1/admissions/${applicationId}`,
+          `https://lms1-mg40.onrender.com/api/v1/admissions/${applicationId}`,
           {
             status: "Admitted",
           }

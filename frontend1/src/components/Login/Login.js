@@ -1,5 +1,3 @@
-
-
 import React, { useState } from "react";
 import axios from "axios";
 import { MDBBtn, MDBInput } from "mdb-react-ui-kit";
@@ -15,10 +13,13 @@ function Login() {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post("http://localhost:8000/api/v1/login", {
-        username,
-        password,
-      });
+      const response = await axios.post(
+        "https://lms1-mg40.onrender.com/api/v1/login",
+        {
+          username,
+          password,
+        }
+      );
 
       if (response.data.success) {
         // Store the authentication token in localStorage or a state management solution
@@ -68,10 +69,7 @@ function Login() {
               value={password}
               onChange={(e) => setpassword(e.target.value)}
             />
-            <MDBBtn
-              onClick={handleLogin}
-             id='SiginBtn'
-            >
+            <MDBBtn onClick={handleLogin} id="SiginBtn">
               Sign In
             </MDBBtn>
           </div>

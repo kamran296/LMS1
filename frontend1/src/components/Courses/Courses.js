@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from "react";
 import "./Courses.css";
 import Navbar from "../Navbar/Navbar";
@@ -9,12 +7,12 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 const Courses = () => {
-   const { pathname } = useLocation();
+  const { pathname } = useLocation();
 
-   // Automatically scrolls to top whenever pathname changes
-   useEffect(() => {
-     window.scrollTo(0, 0);
-   }, [pathname]);
+  // Automatically scrolls to top whenever pathname changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   const [courseData, setCourseData] = useState([]);
   const [token, setToken] = useState(""); // State to store the authentication token
   const navigate = useNavigate();
@@ -36,7 +34,7 @@ const Courses = () => {
   const fetchCourses = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8000/api/v1/course/getallcourse"
+        "https://lms1-mg40.onrender.com/api/v1/course/getallcourse"
         // {
         //   headers: {
         //     authToken: token, // Include the token in the request headers

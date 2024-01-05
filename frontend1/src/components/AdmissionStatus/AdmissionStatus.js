@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Navbar from "../Navbar/Navbar";
@@ -7,34 +5,33 @@ import SideBar from "../SideBar/SideBar";
 import { MDBTable, MDBTableHead, MDBTableBody } from "mdb-react-ui-kit";
 import Button from "react-bootstrap/Button";
 import StudentAdmitModal from "../studentModal.js/studentModal";
-import './StudentStatus.css'
+import "./StudentStatus.css";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 const DashboardContainer = styled.div`
   display: flex;
 `;
 const AdmissionStatus = () => {
-const { pathname } = useLocation();
+  const { pathname } = useLocation();
 
-// Automatically scrolls to top whenever pathname changes
-useEffect(() => {
-  window.scrollTo(0, 0);
-}, [pathname]);
-  
+  // Automatically scrolls to top whenever pathname changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   const [admissionsData, setAdmissionsData] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [selectedStudentId, setSelectedStudentId] = useState(null);
   const [currApplicationId, setCurrApplicationId] = useState("");
   const navigate = useNavigate();
   useEffect(() => {
-  
     if (!localStorage.getItem("authToken")) {
       navigate("/");
     }
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "http://localhost:8000/api/v1/admissions/getalladmissions"
+          "https://lms1-mg40.onrender.com/api/v1/admissions/getalladmissions"
         );
         const data = await response.json();
         setAdmissionsData(data);
@@ -65,7 +62,6 @@ useEffect(() => {
 
   return (
     <>
-    
       <Navbar />
       <DashboardContainer>
         <SideBar />

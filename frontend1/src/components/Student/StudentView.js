@@ -14,12 +14,12 @@ import "firebase/compat/storage";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 const StudentView = () => {
-   const { pathname } = useLocation();
+  const { pathname } = useLocation();
 
-   // Automatically scrolls to top whenever pathname changes
-   useEffect(() => {
-     window.scrollTo(0, 0);
-   }, [pathname]);
+  // Automatically scrolls to top whenever pathname changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   const [basicActive, setBasicActive] = useState("tab1");
   const [studentDetails, setStudentDetails] = useState({});
   const [image, setImage] = useState("");
@@ -46,7 +46,7 @@ const StudentView = () => {
   const fetchAttendanceData = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8000/api/v1/attendance/${studentId}`,
+        `https://lms1-mg40.onrender.com/api/v1/attendance/${studentId}`,
         {
           headers: {
             authToken: authToken,
@@ -63,7 +63,7 @@ const StudentView = () => {
   const fetchDetails = async (req, res) => {
     try {
       const response = await axios.get(
-        `http://localhost:8000/api/v1/student/view/${studentId}`
+        `https://lms1-mg40.onrender.com/api/v1/student/view/${studentId}`
       );
       const data = await response.data;
       setStudentDetails(data);
@@ -129,7 +129,7 @@ const StudentView = () => {
         image: image,
       }));
       const response = await axios.post(
-        `http://localhost:8000/api/v1/student/addfees/${studentId}`,
+        `https://lms1-mg40.onrender.com/api/v1/student/addfees/${studentId}`,
         formData
       );
       alert("fees added successfully");
@@ -225,7 +225,7 @@ const StudentView = () => {
                         src={fee.image}
                         alt="Fee Receipt"
                         download
-                        style={{ maxWidth: "100%" }}
+                        style={{ height: "300px", width: "300px" }}
                       />
                     )}
                     <button

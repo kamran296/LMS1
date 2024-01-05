@@ -5,16 +5,16 @@ import { MDBTable, MDBTableHead, MDBTableBody } from "mdb-react-ui-kit";
 import Navbar from "../Navbar/Navbar";
 import SideBar from "../SideBar/SideBar";
 import { useNavigate } from "react-router-dom";
-import './Student.css'
+import "./Student.css";
 import Button from "react-bootstrap/Button";
 import { useLocation } from "react-router-dom";
 const Student = () => {
-   const { pathname } = useLocation();
+  const { pathname } = useLocation();
 
-   // Automatically scrolls to top whenever pathname changes
-   useEffect(() => {
-     window.scrollTo(0, 0);
-   }, [pathname]);
+  // Automatically scrolls to top whenever pathname changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [showModal, setShowModal] = useState(false);
@@ -30,7 +30,7 @@ const Student = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8000/api/v1/student/getallstudents"
+        "https://lms1-mg40.onrender.com/api/v1/student/getallstudents"
       );
       const data = await response.data;
       setData(data);
@@ -73,7 +73,7 @@ const Student = () => {
                   <th scope="col">Parent Phone</th>
                   <th scope="col">Mobile</th>
                   <th scope="col">Course Name</th>
-                  <th scope="col">Course Duration</th>
+                  {/* <th scope="col">Course Duration</th> */}
                   <th scope="col">Course Fees</th>
                   <th scope="col">Status</th>
                   <th scope="col">View</th>
@@ -94,10 +94,10 @@ const Student = () => {
                       {item.applicationId.course &&
                         item.applicationId.course.coursename}
                     </td>
-                    <td>
+                    {/* <td>
                       {item.applicationId.course &&
                         item.applicationId.course.duration}
-                    </td>
+                    </td> */}
                     <td>
                       {item.applicationId.course &&
                         item.applicationId.course.fees}

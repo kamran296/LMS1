@@ -7,12 +7,12 @@ import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 const TeacherRegistration = () => {
-   const { pathname } = useLocation();
+  const { pathname } = useLocation();
 
-   // Automatically scrolls to top whenever pathname changes
-   useEffect(() => {
-     window.scrollTo(0, 0);
-   }, [pathname]);
+  // Automatically scrolls to top whenever pathname changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
@@ -39,7 +39,7 @@ const TeacherRegistration = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:8000/api/v1/teacher/create-teacher",
+        "https://lms1-mg40.onrender.com/api/v1/teacher/create-teacher",
         {
           method: "POST",
           headers: {

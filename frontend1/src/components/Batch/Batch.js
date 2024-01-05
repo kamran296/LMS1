@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from "react";
 import "./Batch.css";
 import Navbar from "../Navbar/Navbar";
@@ -10,12 +8,12 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 const Batch = () => {
-   const { pathname } = useLocation();
+  const { pathname } = useLocation();
 
-   // Automatically scrolls to top whenever pathname changes
-   useEffect(() => {
-     window.scrollTo(0, 0);
-   }, [pathname]);
+  // Automatically scrolls to top whenever pathname changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   const [batchName, setBatchName] = useState("");
   const [course, setCourse] = useState(null); // Store selected course object
   const [teacher, setTeacher] = useState(null); // Store selected teacher object
@@ -39,7 +37,7 @@ const Batch = () => {
   const fetchCourses = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8000/api/v1/course/getallcourse"
+        "https://lms1-mg40.onrender.com/api/v1/course/getallcourse"
       );
       setCourses(response.data);
     } catch (error) {
@@ -50,7 +48,7 @@ const Batch = () => {
   const fetchTeachers = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8000/api/v1/teacher/getallteachers"
+        "https://lms1-mg40.onrender.com/api/v1/teacher/getallteachers"
       );
       setTeachers(response.data);
     } catch (error) {
@@ -74,7 +72,7 @@ const Batch = () => {
       const selectedTeacher = findTeacherByName(teacher);
       console.log(selectedTeacher);
       const response = await axios.post(
-        "http://localhost:8000/api/v1/batch/create-batch",
+        "https://lms1-mg40.onrender.com/api/v1/batch/create-batch",
         {
           batchname: batchName,
           course: selectedCourse,
