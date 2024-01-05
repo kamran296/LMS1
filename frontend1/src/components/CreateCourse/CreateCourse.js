@@ -48,7 +48,7 @@ const CreateCourse = () => {
         }
       );
       // Handle the response as needed (e.g., show success message, redirect, etc.)
-      console.log("Course added successfully:", response.data);
+      alert("Course added successfully:");
 
       // Optionally reset the form fields
       setCoursename("");

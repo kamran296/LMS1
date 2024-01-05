@@ -67,7 +67,7 @@ const StudentView = () => {
       );
       const data = await response.data;
       setStudentDetails(data);
-      console.log("data fetched succeessfully");
+      // console.log("data fetched succeessfully");
     } catch (error) {
       console.log(error);
     }
@@ -117,7 +117,7 @@ const StudentView = () => {
         });
       });
     } else {
-      console.log("no file selected");
+      alert("no file selected");
     }
   };
 
@@ -133,7 +133,7 @@ const StudentView = () => {
         formData
       );
       alert("fees added successfully");
-      console.log(response.data);
+      // console.log(response.data);
       // Handle success, update UI, etc.
     } catch (error) {
       console.error(error);

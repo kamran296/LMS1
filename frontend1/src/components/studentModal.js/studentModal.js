@@ -29,7 +29,7 @@ const StudentAdmitModal = ({
           ...prevFormData,
           applicationId: data,
         }));
-        console.log(data, 432);
+        // console.log(data, 432);
         return data;
       } catch (err) {
         console.log(err);
@@ -43,7 +43,7 @@ const StudentAdmitModal = ({
         "https://lms1-mg40.onrender.com/api/v1/batch/getAllBatches"
       );
       const data = await response.data;
-      console.log(data);
+      // console.log(data);
       setBatches(data);
     } catch (error) {
       console.error("Error fetching batches:", error);
@@ -142,7 +142,7 @@ const StudentAdmitModal = ({
   // Function to handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData, "formData");
+    // console.log(formData, "formData");
     try {
       // Send form data to the API endpoint
 
@@ -151,7 +151,8 @@ const StudentAdmitModal = ({
         formData
       );
       const status = "Admitted";
-      console.log("Form submitted successfully!", response.data);
+      // console.log("Form submitted successfully!", response.data);
+
       alert("student added successfully");
 
       if (status === "Admitted") {

@@ -48,7 +48,7 @@ const StudentAdmission = () => {
 
       if (response.status === 200) {
         const courseData = await response.json();
-        console.log(courseData, 1234);
+        // console.log(courseData, 1234);
         setFormData((prevData) => ({
           ...prevData,
           course: {
@@ -75,7 +75,7 @@ const StudentAdmission = () => {
 
     if (name === "courseInterested") {
       await fetchCourseId(value);
-      console.log(value);
+      // console.log(value);
     }
 
     if (name.startsWith("education.")) {
@@ -125,7 +125,7 @@ const StudentAdmission = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Data:", formData);
+    // console.log("Form Data:", formData);
 
     try {
       const response = await axios.post(

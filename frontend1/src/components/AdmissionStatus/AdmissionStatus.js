@@ -44,16 +44,16 @@ const AdmissionStatus = () => {
   }, []);
 
   const handleAdmitButtonClick = (studentId) => {
-    console.log(studentId);
+    // console.log(studentId);
     setSelectedStudentId(studentId);
     setShowModal(true);
     setCurrApplicationId(studentId);
-    console.log(currApplicationId, 1234);
+    // console.log(currApplicationId, 1234);
   };
 
   const handleAdmit = async ({ fees }) => {
     // Implement logic to send data to API
-    console.log("Admit student with ID:", selectedStudentId, "Fees:", fees);
+    // console.log("Admit student with ID:", selectedStudentId, "Fees:", fees);
 
     // Close the modal
     setShowModal(false);

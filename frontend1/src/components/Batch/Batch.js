@@ -70,7 +70,7 @@ const Batch = () => {
     try {
       const selectedCourse = findCourseByName(course);
       const selectedTeacher = findTeacherByName(teacher);
-      console.log(selectedTeacher);
+      // console.log(selectedTeacher);
       const response = await axios.post(
         "https://lms1-mg40.onrender.com/api/v1/batch/create-batch",
         {
@@ -84,7 +84,7 @@ const Batch = () => {
           },
         }
       );
-      console.log("Batch created successfully:", response.data);
+      // console.log("Batch created successfully:", response.data);
     } catch (error) {
       console.error("Error creating batch:", error);
     }
